@@ -4,9 +4,8 @@ import { LuShoppingCart } from "react-icons/lu";
 
 function CartWidget() {
   return (
-    <Box mr={4} color={'#BBE1FA'} fontSize={'2rem'}>
+    <Box mr={4} color={'#fff'} fontSize={'1.3rem'}>
       <LuShoppingCart />
-
     </Box>
   )
 }

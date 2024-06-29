@@ -1,53 +1,54 @@
+
 export const products = [
     {
         id: 1,
-        nombre: "Remera Rick",
+        nombre: "Samsung Galaxy A24",
         precio: 8500,
-        categoria: "Remeras",
+        categoria: "celulares",
         stock: 5,
         descripcion:
-            "Las remeras son 100% algodón peinado 24/1 (Premium).No se deforman, ni pierden el color.",
-        img: "https://http2.mlstatic.com/D_NQ_NP_751255-MLA31037228606_062019-O.webp",
+            "El Samsung Galaxy A24 es un smartphone que ofrece una experiencia completa con sus destacadas características en términos de pantalla, batería y cámaras. Su pantalla Super AMOLED te brinda una calidad de imagen impresionante con colores vibrantes y un contraste nítido. Además, con una tasa de refresco de 90Hz, disfrutarás de una navegación suave y fluida en todo el dispositivo, desde desplazarte por las redes sociales hasta jugar juegos",
+        img: "https://www.megatone.net/images//Articulos/zoom2x/209/MKT1761CEV-1.jpg",
     },
     {
         id: 2,
-        nombre: "Buzo peace among worlds",
-        precio: 13000,
-        categoria: "Buzos",
+        nombre: "Gabinete Kolink Inspire K3 M-ATX ",
+        precio: 41900,
+        categoria: "gabinetes",
         stock: 5,
         descripcion:
-            "Buzo Unisex 100% Algodón. Cuello Redondo con refuerzo en los cuellos y mangas",
-        img: "https://http2.mlstatic.com/D_NQ_NP_835655-MLA45781466100_052021-O.webp",
+            "el Gabinete Kolink Inspire K3  es compacto con diseño moderno, panel frontal RGB y excelente gestión de cables. Ideal para construir PCs de alto rendimiento en espacios reducidos.",
+        img: "https://imagenes.compragamer.com/productos/compragamer_Imganen_general_38034_Gabinete_Antec_NX200M_White_Vidrio_Templado_1776b5b2-grn.jpg",
     },
     {
         id: 3,
-        nombre: "Pijama Rick and Morty",
+        nombre: "Notebook Gamer Dell",
         precio: 8900,
-        categoria: "Pijamas",
+        categoria: "notebooks",
         stock: 5,
         descripcion:
-            "Los Pants son de lycra y modal calidad premium, cómodos, súper suaves, livianos y frescos para usarlos tranqui en casa o dónde quieras. Tienen cintura elastizada con con cordón regulable para ajustarlos hasta estar cómodos. La tela no encoje, los estampados no decoloran y es por eso que todas nuestras prendas cuentan con garantía de estampado.",
-        img: "https://acdn.mitiendanube.com/stores/944/335/products/4181-ba681e6c1fd38d3ed816651113884723-1024-1024.jpg",
+            "Notebook Gamer Dell: Potente rendimiento con pantalla de 240Hz, procesador i9-13900, tarjeta gráfica RTX 4070, 32GB DDR5 y 1TB SSD. Ideal para gaming de alta velocidad y tareas intensivas.",
+        img: "https://imagenes.compragamer.com/productos/compragamer_Imganen_general_39866_Notebook_Gamer_Dell_G16_7630_16__QHD__240Hz_i9-13900HX_RTX4070_32GB_DDR5_1TB_SSD_Win11_385fb303-grn.jpg",
     },
     {
         id: 4,
-        nombre: "Remeron Rick And Morty",
+        nombre: "Procesador Intel Core i5 14600K",
         precio: 9900,
-        categoria: "Remeras",
+        categoria: "procesadores",
         stock: 5,
         descripcion:
-            "Los remerones son 100% algodón peinado 24/1 (Premium).No se deforman, ni pierden el color.",
-        img: "https://media.nastygal.com/i/nastygal/agg04760_charcoal_xl/female-charcoal-rick-and-morty-graphic-t-shirt-dress/?w=1070&qlt=default&fmt.jp2.qlt=70&fmt=auto&sm=fit",
+            "Procesador Intel Core i5-14600K: Rápido y eficiente, con 5.3GHz Turbo y Socket 1700. Basado en la arquitectura Raptor Lake, ofrece un rendimiento superior para gaming y multitarea.",
+        img: "https://imagenes.compragamer.com/productos/compragamer_Imganen_general_38636_Procesador_Intel_Core_i5_14600K_5.3GHz_Turbo_Socket_1700_Raptor_Lake_07cb7412-grn.jpg",
     },
     {
         id: 5,
-        nombre: "Zapatillas",
-        precio: 14900,
-        categoria: "Zapatillas De Lona Pintadas A Mano Rick And Morty",
+        nombre: "Notebook Lenovo IdeaPad 3",
+        precio: 610000,
+        categoria: "notebooks",
         stock: 5,
         descripcion:
-            "Zapatilla de lona reforzada. Pintada a mano con pintura de calidad.",
-        img: "https://http2.mlstatic.com/D_NQ_NP_958920-MLA53230449583_012023-O.webp",
+            "Notebook Lenovo IdeaPad 3 15ALC6: Pantalla FHD de 15.6, Ryzen 3 5300U, 8GB de RAM y 256GB SSD NVMe. Con FreeDOS y un elegante diseño en azul, ideal para productividad y entretenimiento diario.",
+        img: "https://imagenes.compragamer.com/productos/compragamer_Imganen_general_39439_Notebook_Lenovo_IdeaPad_3_15ALC6_FHD_15.6__Ryzen_3_5300U_8GB_256GB_SSD_NVMe_Freedos_Blue_3863f106-grn.jpg",
     },
 ];
 
@@ -56,6 +57,25 @@ export const getProducts = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(products)
+        }, 2000);
+    })
+}
+export const getProductsByCategory = (category) => {
+    return new Promise((resolve) => {
+        const productosFiltrados = products.filter(
+            (prod) => prod.categoria === category
+        )
+        setTimeout(() => {
+            resolve(productosFiltrados)
+        }, 2000);
+    })
+}
+export const getProductsById = (id) => {
+    return new Promise((resolve) => {
+        const productoFiltrado = products.find(prod => prod.id === parseInt(id))
+        setTimeout(() => {
+            resolve(productoFiltrado)
+
         }, 2000);
     })
 }

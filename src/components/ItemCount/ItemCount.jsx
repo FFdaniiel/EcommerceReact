@@ -17,16 +17,14 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
   return (
     <Box textAlign={'center'} m={'0'} color={'#BBE1FA'}>
-      <Flex justify={'center'} mb={'.5rem'}>
+      <Flex justify={'center'} mb={'.5rem'} >
         <Button margin={'0 3rem'} onClick={decrement}>
           -
         </Button>
         <Text color='blue.600' fontSize='2xl' >{quantity}</Text>
-        <Button margin={'0 3rem'} onClick={increment}>
+        <Button margin={'0 3rem'}  onClick={increment}>
           +
         </Button>
-      <div>
-      </div>
       </Flex>
       <Button
         textTransform={'UpperCase'}

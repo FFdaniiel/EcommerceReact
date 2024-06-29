@@ -1,20 +1,21 @@
-import { Flex, Heading,Menu,MenuButton,MenuList,MenuItem, Button } from '@chakra-ui/react'
+import { Flex,Menu,MenuButton,MenuList,MenuItem, Button } from '@chakra-ui/react'
 import React from 'react'
 import { FaChevronDown } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 function NavBarCategory() {
   return (
-    <Flex  justify={'center'} align={'center'} height={'8vh'} w={'100%'}  >
+    <Flex  justify={'center'} align={'center'} pt={'1rem'}>
       <Menu>
         <MenuButton as={Button} rightIcon={<FaChevronDown />}>
-          Actions
+          Productos
         </MenuButton>
         <MenuList>
-          <MenuItem>Download</MenuItem>
-          <MenuItem>Create a Copy</MenuItem>
-          <MenuItem>Mark as Draft</MenuItem>
-          <MenuItem>Delete</MenuItem>
-          <MenuItem>Attend a Workshop</MenuItem>
+          <MenuItem ><Link to={'/'}>Todos</Link></MenuItem>
+          <MenuItem ><Link to={'/category/celulares'} >Celulares</Link></MenuItem>
+          <MenuItem ><Link to={'/category/notebooks'} >Notebooks</Link></MenuItem>
+          <MenuItem ><Link to={'/category/gabinetes'} >Gabinetes</Link></MenuItem>
+          <MenuItem ><Link to={'/category/procesadores'} >Procesadores</Link></MenuItem>
         </MenuList>
       </Menu>
     </Flex>

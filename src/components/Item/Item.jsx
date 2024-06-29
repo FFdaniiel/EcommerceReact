@@ -1,11 +1,14 @@
 import React from 'react'
-import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Stack, Image,Text } from '@chakra-ui/react'
+import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Stack, Image,Text  } from '@chakra-ui/react'
 import ItemCount from '../ItemCount/ItemCount'
-
-const Item = ({nombre,img,precio})=> {
+import { Link } from 'react-router-dom';
+import { color } from 'framer-motion';
+import './Item.css'
+const Item = ({ id, nombre, img, precio})=> {
   return (
-    <Card maxW='sm'>
-    <CardBody>
+    <Link to={`/product/${id}`} color={'red'} >
+  <Card className='itemContainer' maxW='sm' minW={'300px'}>
+    <CardBody >
       <Image
         w={'350px'}
         h={'350px'}
@@ -19,17 +22,9 @@ const Item = ({nombre,img,precio})=> {
           ${precio}
         </Text>
       </Stack>
-      <ItemCount initial={1} stock={10} onAdd={(quantity) => console.log('Cantidad agregada ' , quantity)}/>
     </CardBody>
-    <Divider />
-    <CardFooter>
-      <ButtonGroup spacing='2'>
-        <Button variant='ghost' colorScheme='blue'>
-          Ver detalle
-        </Button>
-      </ButtonGroup>
-    </CardFooter>
   </Card>
+    </Link>
   )
 }
 

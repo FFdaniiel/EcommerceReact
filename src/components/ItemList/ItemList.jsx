@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Button, Flex } from '@chakra-ui/react'
 import Item from '../Item/Item'
 import './ItemList.css'
 

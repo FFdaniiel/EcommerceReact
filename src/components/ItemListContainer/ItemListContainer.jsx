@@ -4,30 +4,44 @@ import { getProducts, getProductsByCategory} from './../../data/asyncMock'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
 import { SyncLoader } from "react-spinners";
+import { db } from '../../config/firebase'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 
 const ItemListContainer = ({ title }) =>{
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const {categoryId} = useParams()
-  
-  useEffect(() => {
-    const dataProductos = categoryId ? getProductsByCategory(categoryId) : getProducts()
 
+  useEffect(() => {
     setLoading(true)
-    dataProductos
-      .then(prod => setProducts(prod))
-      .catch(error => console.log(error))
-      .finally(() => setLoading(false))
+
+    const getData = async () => {
+      const coleccion = collection(db, 'productos')
+      const queryRef = !categoryId
+        ? coleccion
+        : query(coleccion, where('categoria', '==', categoryId))
+      const response = await getDocs(queryRef)
+      const products = response.docs.map((doc) => {
+        const newItem = {
+          ...doc.data(),
+          id: doc.id,
+        }
+        return newItem
+      })
+      setProducts(products)
+      setLoading(false)
+    }
+    getData()
   }, [categoryId])
 
   return (
-    <Flex direction={'column'} justify={'center'} align={'center'} padding={'1rem'}>
+    <Flex direction={'column'} justify={'center'} align={'center'} paddingTop={'1rem'}>
       <Heading 
       color={'#fff'} 
       textAlign={'center'} 
-      borderBottom={'1px solid #14FFEC'} 
-      borderTop={'1px solid #14FFEC'} 
-      w={'60%'}
+      borderBottom={'1px solid #fff'} 
+      borderTop={'1px solid #fff'} 
+      w={'90%'}
       textTransform={'uppercase'}>{title}</Heading>
       {
         loading ?
